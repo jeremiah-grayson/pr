@@ -1,21 +1,46 @@
 package com.cg.payroll.services;
 
+import java.util.List;
+
 import com.cg.payroll.dto.Employee;
-import com.cg.payroll.exceptions.PayrollServicesDownException;
 import com.cg.payrolldao.services.EmployeeDAO;
 import com.cg.payrolldao.services.EmployeeDAOImple;
-import com.cg.services.ServiceProvider;
 
-public abstract class PayrollServicesImple implements PayrollServices
-{
-	private EmployeeDAO employeedao;
-	public PayrollServicesImple() throws PayrollServicesDownException
+public class PayrollServicesImple implements PayrollServices {
+
+	private EmployeeDAO employeeDAO;
+	
+	public PayrollServicesImple() 
 	{
-		employeedao=ServiceProvider.getEmployeeDAOImple();
+		employeeDAO=new EmployeeDAOImple();
 	}
-	public int acceptEmployeeDetails(Employee emp1)
+	@Override
+	public int acceptEmployeeDetails(Employee employee) 
 	{
-		emp1=employeedao.save(emp1);
-		return emp1.getEmployeeID();
+		// TODO Auto-generated method stub
+		employee = employeeDAO.save(employee);
+		return employee.getEmployeeID(); 
 	}
+
+	@Override
+	public int calculateNetSalary(int employeeId) 
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Employee getEmployeeDetails(int employeeId) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employee> getAllEmployeesDetails() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

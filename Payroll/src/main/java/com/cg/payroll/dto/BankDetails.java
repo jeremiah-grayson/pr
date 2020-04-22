@@ -5,6 +5,12 @@ public class BankDetails
     int accountNumber;
     String bankName;
     String ifscCode;
+    
+    public BankDetails() 
+    {
+		// TODO Auto-generated constructor stub
+	}
+    
     public BankDetails(int accountNumber, String bankName, String ifscCode) 
     {
         super();
